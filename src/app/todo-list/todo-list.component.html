@@ -1,0 +1,38 @@
+<div class="container mt-4">
+  <h2 class="title mb-4">Crud Operation</h2>
+  <div class="divider"></div>
+  <form (ngSubmit)="saveTodo()" #todoForm="ngForm">
+    <div class="mb-3">
+      <input type="text" class="form-control" placeholder="Title" [(ngModel)]="newTodo.title" name="title" #title="ngModel" required>
+      <div *ngIf="title.invalid && title.touched" class="text-danger">Title is required.</div>
+    </div>
+    <div class="mb-3">
+      <textarea class="form-control" placeholder="Description" [(ngModel)]="newTodo.description" name="description" #description="ngModel" required></textarea>
+      <div *ngIf="description.invalid && description.touched" class="text-danger">Description is required.</div>
+    </div>
+    <button type="submit" class="btn btn-primary" [disabled]="todoForm.invalid">{{ isEditMode ? 'Update Todo' : 'Add Todo' }}</button>
+    <div *ngIf="errorMessage" class="text-danger mt-2">{{ errorMessage }}</div>
+  </form>
+  <div class="divider"></div>
+  <table class="table table-bordered mt-4">
+    <thead class="table-danger">
+      <tr>
+        <th>ID</th>
+        <th>Title</th>
+        <th>Description</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let todo of todos">
+        <td>{{ todo.id }}</td>
+        <td>{{ todo.title }}</td>
+        <td>{{ todo.description }}</td>
+        <td>
+          <button class="btn btn-danger action-btn" (click)="deleteTodo(todo.id)">Delete</button>
+          <button class="btn btn-secondary action-btn" (click)="editTodo(todo)">Edit</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

@@ -1,0 +1,8 @@
+.container { margin-top: 50px; }
+.table thead th { text-align: center; }
+.table tbody td { text-align: center; vertical-align: middle; }
+.title { text-align: center; font-size: 3rem; color: #c15ca8; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1); margin-bottom: 20px; }
+.text-danger {color: red;}
+.mt-2 {margin-top: 0.5rem;}
+.divider { height: 2px; background-color: #007bff; margin: 20px 0; }
+.action-btn {margin-right: 10px;}
